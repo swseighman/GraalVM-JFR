@@ -89,7 +89,7 @@ $ docker run -d -p 3000:3000 --rm --name=grafana -e "GF_INSTALL_PLUGINS=grafana-
 ```
 Login to the Grafana dashboard via [http://localhost:3000](http://localhost:3000). The default username/password is **admin/admin**.
 
-![](images/grafana-1.png)
+![](./images/grafana-1.png)
 
 #### Building a Dashboard
 Add instructions here.
