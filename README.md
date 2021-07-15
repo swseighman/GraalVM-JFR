@@ -89,7 +89,7 @@ $ docker run -d -p 3000:3000 --rm --name=grafana -e "GF_INSTALL_PLUGINS=grafana-
 ```
 Login to the Grafana dashboard via [http://localhost:3000](http://localhost:3000). The default username/password is **admin/admin**.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/grafana-1.png)
+![](images/grafana-1.png)
 
 #### Building a Dashboard
 Add instructions here.
@@ -253,7 +253,7 @@ $ minikube service prometheus-server-ui
 👉  http://127.0.0.1:33547
 ❗  Because you are using a Docker driver on linux, the terminal needs to be open to run it.
 ```
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Prometheus-1.png)
+![](images/Prometheus-1.png)
 Now we'll install Grafana:
 ```
 $ helm install grafana grafana/grafana
@@ -337,40 +337,40 @@ Now that we have both Prometheus and Grafana services available, we'll need to c
 
 Click on the **gear** icon, then '**Data sources**'.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-7.png)
+![](images/Grafana-7.png)
 
 Choose '**Add data source**'.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-8.png)
+![](images/Grafana-8.png)
 
 Choose '**Prometheus**', then the '**Select**' button.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-9.png)
+![](images/Grafana-9.png)
 
 Add the URL for your Prometheus instance, the default is `http://prometheus-server:80`. Then click '**Save & test**' button. If all is well, you should see a message appear indicating the '**Data source is working**'.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-11.png)
+![](images/Grafana-11.png)
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-10.png)
+![](images/Grafana-10.png)
 
 Let's add a dashboard to test our Prometheus and Grafana environment.
 
 Login to the Grafana dashboard, click on the '**+**' icon, then '**Import**'.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-2.png)
+![](images/Grafana-2.png)
 
 For testing purposes, we'll load a pre-defined dashboard that displays information about your minikube environment. Add '**6417**', then click the '**Load**' button.
 
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-3.png)
+![](images/Grafana-3.png)
 
 Change the data source to '**Prometheus**' and click the '**Import**' button.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-4.png)
+![]images/Grafana-4.png)
 
 The kubernetes dashboard will be displayed with current data about your minikube cluster.
 
-![](//wsl$/Fedora/home/sseighma/code/java/GraalVM-JFR/images/Grafana-6.png)
+![](images/Grafana-6.png)
 
 Great!  We have our Prometheus and Grafana environment up and running.
 
