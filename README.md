@@ -366,7 +366,7 @@ For testing purposes, we'll load a pre-defined dashboard that displays informati
 
 Change the data source to '**Prometheus**' and click the '**Import**' button.
 
-![]images/Grafana-4.png)
+![](images/Grafana-4.png)
 
 The kubernetes dashboard will be displayed with current data about your minikube cluster.
 
