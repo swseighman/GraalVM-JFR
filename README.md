@@ -92,6 +92,11 @@ Login to the Grafana dashboard via [http://localhost:3000](http://localhost:3000
 
 ![](images/grafana-1.png)
 
+You can choose to change the admin password or simply skip that step.
+
+![](images/Grafana-12.png)
+
+
 #### Prometheus Using a Container
 
 Running Prometheus in a container is also straightforward.
@@ -146,7 +151,19 @@ grafana/grafana                       latest           e3b53d20d03a   2 weeks ag
 ```
 #### Adding a Dashboard
 
+We'll add a pre-defined Java dashboard to monitor various aspects and events of our running JVM.
 
+Login to the Grafana dashboard, click on the '**+**' icon, then '**Import**'.
+
+![](images/Grafana-2.png)
+
+Choose the `java-dashboard.json` file from the repository. Click on `Import`.
+
+![](images/Grafana-14.png)
+
+The JVM dashboard will be displayed.
+
+![](images/Grafana-15.png)
 
 Great!  We have our Prometheus and Grafana environment up and running, plus a dashboard.
 
