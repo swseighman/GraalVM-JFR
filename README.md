@@ -82,17 +82,73 @@ Add documentation/instructions here.
 
 [Grafana](https://grafana.com/grafana/) is an open source technology that allows you to centralize the analysis, visualization, and alerting for all of your data including JFR.
 
-#### Grafana Using Docker
+#### Grafana Using a Container
 
 ```
 $ docker run -d -p 3000:3000 --rm --name=grafana -e "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource" grafana/grafana
 ```
+
 Login to the Grafana dashboard via [http://localhost:3000](http://localhost:3000). The default username/password is **admin/admin**.
 
 ![](images/grafana-1.png)
 
-#### Building a Dashboard
-Add instructions here.
+#### Prometheus Using a Container
+
+Running Prometheus in a container is also straightforward.
+
+```
+$ docker run -p 9090:9090 prom/prometheus
+```
+This starts Prometheus with a sample configuration and exposes it on port 9090.
+
+![](images/Prometheus-1.png)
+
+
+#### Connecting a Data Source & Building a Dashboard
+Now that we have both Prometheus and Grafana services available, we'll need to create a Prometheus data source via the Grafana dashboard.
+
+Click on the **gear** icon, then '**Data sources**'.
+
+![](images/Grafana-7.png)
+
+Choose '**Add data source**'.
+
+![](images/Grafana-8.png)
+
+Choose '**Prometheus**', then the '**Select**' button.
+
+![](images/Grafana-9.png)
+
+Add the URL for your Prometheus instance.
+
+**NOTE:** For WSL2, get the IP address by executing the following command via a Windows prompt:
+
+```
+C:\> wsl hostname -I
+192.1.4.23
+```
+Then add `http://<ip-address>:9090`
+
+
+**NOTE:** For the K8s implementation, the default is `http://prometheus-server:80`. 
+
+Then click '**Save & test**' button. If all is well, you should see a message appear indicating the '**Data source is working**'.
+
+![](images/Grafana-11.png)
+
+![](images/Grafana-10.png)
+
+```
+$ docker images
+REPOSITORY                            TAG              IMAGE ID       CREATED         SIZE
+prom/prometheus                       latest           9dfc442be98c   2 weeks ago     189MB
+grafana/grafana                       latest           e3b53d20d03a   2 weeks ago     206MB
+```
+#### Adding a Dashboard
+
+
+
+Great!  We have our Prometheus and Grafana environment up and running, plus a dashboard.
 
 #### Using Prometheus & Grafana with Kubernetes
 
@@ -333,25 +389,8 @@ $ minikube service grafana-ui
 
 **NOTE:** If you're using WSL2. you may need to access the dashboard using the IP address.
 
-Now that we have both Prometheus and Grafana services available, we'll need to create a Prometheus data source via the Grafana dashboard.
-
-Click on the **gear** icon, then '**Data sources**'.
-
-![](images/Grafana-7.png)
-
-Choose '**Add data source**'.
-
-![](images/Grafana-8.png)
-
-Choose '**Prometheus**', then the '**Select**' button.
-
-![](images/Grafana-9.png)
-
-Add the URL for your Prometheus instance, the default is `http://prometheus-server:80`. Then click '**Save & test**' button. If all is well, you should see a message appear indicating the '**Data source is working**'.
-
-![](images/Grafana-11.png)
-
-![](images/Grafana-10.png)
+#### Building a Dashboard
+Follow the same instructions used with the container versions of Prometheus/Grafana to create a data source.
 
 Let's add a dashboard to test our Prometheus and Grafana environment.
 
@@ -371,8 +410,3 @@ Change the data source to '**Prometheus**' and click the '**Import**' button.
 The kubernetes dashboard will be displayed with current data about your minikube cluster.
 
 ![](images/Grafana-6.png)
-
-Great!  We have our Prometheus and Grafana environment up and running.
-
-
-
