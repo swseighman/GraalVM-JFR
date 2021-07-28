@@ -66,18 +66,59 @@ Print GC related events
 $ jfr print --categories "GC" flight.jfr
 ```
 
-### JFR Streaming API
-Add documentation/instructions here.
-
-#### Using jfr-datasource
-Add documentation/instructions here.
-
 ### Visualizing JFR Recordings
 
 #### Using VisualVM
-Add documentation/instructions here.
+GraalVM includes the VisualVM tool which provides heap analysis features for the supported guest languages. These languages and features are currently available:
+
+* Java: Heap Summary, Objects View, Threads View, OQL Console
+* JavaScript: Heap Summary, Objects View, Thread View
+* Python: Heap Summary, Objects View
+* Ruby: Heap Summary, Objects View, Threads View
+* R: Heap Summary, Objects View
+
+To start VisualVM, execute:
+```
+$ jvisualvm &
+```
+Under the `Applications` tab, choose `VisualVM` and you'll see a representation of the current JVM metrics while running the VisualVM application itself.
+
+![](images/VisualVM-2.png)
+
+To open a specific `.jfr` file, double-click on `JFR Snapshots` option under `Applications`, browse to the directory containing the `.jfr` file and click `OK`.
+
+![](images/VisualVM-4.png)
+
+Under a new tab, you'll see a representation of the JVM metrics from the recording file.
+
+![](images/VisualVM-3.png)
+
+**Note:** Support of JDK Flight Recorder is currently experimental. Some advanced features like analyzing JVM internals, showing event stack traces, or support for creating JFR snapshots from live processes are not available in this preview version and will be addressed incrementally in the following releases.
+
+For more information on VisualVM, visit: [https://visualvm.github.io/](https://visualvm.github.io/)
+
 #### Using JDK Mission Control (JMC)
-Add documentation/instructions here.
+JDK Mission Control is an advanced set of tools that enables efficient and detailed analysis of the extensive of data collected by JDK Flight Recorder. The tool chain enables developers and administrators to collect and analyze data from Java applications running locally or deployed in production environments.  
+
+For additional information on JMC, see: [https://docs.oracle.com/en/java/java-components/jdk-mission-control/](https://docs.oracle.com/en/java/java-components/jdk-mission-control/)
+
+To start JMC, execute:
+
+```
+$ jmc & 
+```
+
+
+![](images/JMC-4.png)
+
+![](images/JMC-6.png)
+
+![](images/JMC-1.png)
+
+![](images/JMC-2-1.png)
+
+As you can see, JDK Flight Recorder and JDK Mission Control together create a complete tool chain to continuously collect low level and detailed runtime information enabling after-the-fact incident analysis.
+
 #### Using Grafana
 
 [Grafana](https://grafana.com/grafana/) is an open source technology that allows you to centralize the analysis, visualization, and alerting for all of your data including JFR.
@@ -427,3 +468,10 @@ Change the data source to '**Prometheus**' and click the '**Import**' button.
 The kubernetes dashboard will be displayed with current data about your minikube cluster.
 
 ![](images/Grafana-6.png)
+
+
+### JFR Streaming API
+Add documentation/instructions here.
+
+#### Using jfr-datasource
+Add documentation/instructions here.
