@@ -66,6 +66,8 @@ Print GC related events
 $ jfr print --categories "GC" flight.jfr
 ```
 
+For additional info on JFR see: [https://docs.oracle.com/en/java/java-components/index.html](https://docs.oracle.com/en/java/java-components/index.html)
+
 ### Visualizing JFR Recordings
 
 #### Using VisualVM
